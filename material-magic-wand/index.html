@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Material Magic Wand: Material-aware grouping of 3D parts in untextured meshes.">
+    <meta name="keywords" content="3D, meshes, materials, retrieval, CVPR">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Magic Wand: Material-Aware Grouping of 3D Parts in Untextured Meshes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">Material Magic Wand: Material-Aware Grouping of 3D Parts in Untextured Meshes</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://umangi-jain.github.io/">Umangi Jain</a><sup>1,*</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://vovakim.com/">Vladimir Kim</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="http://mgadelha.me/">Matheus Gadelha</a><sup>1</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://www.gilitschenski.org/igor/">Igor Gilitschenski</a><sup>2</sup>,
+                            </span>
+                            <span class="author-block">
+                                <a href="https://czq142857.github.io/">Zhiqin Chen</a><sup>1</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Toronto,</span>
+                            <span class="author-block"><sup>2</sup>Adobe Research</span>
+                        </div>
+
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block"><sup>*</sup>Work done partially during internship at Adobe</span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block publication-venue">CVPR 2026</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="./static/pdfs/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="./static/pdfs/supplementary.pdf?v=20260316-0101" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-folder-open"></i>
+                                        </span>
+                                        <span>Supplementary</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code (coming soon)</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <img src="./static/images/introduction.png" alt="Teaser result for Material Magic Wand" style="width: 100%; height: auto;">
+                <h3 class="subtitle has-text-centered">
+                    <b>TL;DR:</b> We introduce Material Magic Wand, a tool for material-aware grouping of parts in untextured 3D meshes. Given one selected part, it automatically retrieves the other parts in the same shape that are likely to share its material, using both geometric and contextual cues.
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Overview</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We introduce the problem of material-aware part grouping in untextured meshes. Many real-world shapes, such as scales of pinecones or windows of buildings, contain repeated structures that share the same material but exhibit geometric variations. When assigning materials to such meshes, these repeated parts often require piece-by-piece manual identification and selection, which is tedious and time-consuming. To address this, we propose Material Magic Wand, a tool that allows artists to select part groups based on their estimated material properties. When one part is selected, our algorithm automatically retrieves all other parts likely to share the same material. The key component of our approach is a part encoder that generates a material-aware embedding for each 3D part, accounting for both local geometry and global context. We train our model with a supervised contrastive loss that brings embeddings of material-consistent parts closer while separating those of different materials; therefore, part grouping can be achieved by retrieving embeddings that are close to the embedding of the selected part. To benchmark this task, we introduce a curated dataset of 100 shapes with 241 part-level queries. We verify the effectiveness of our method through extensive experiments and demonstrate its practical value in an interactive material assignment application.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Method</h2>
+                    <img src="./static/images/method-custom.png" alt="Method overview" class="feature-image">
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Left:</b> Our view selection process renders each part with nearby context from multiple viewpoints sampled randomly over a hemisphere. We choose the one with minimal occlusion, <i>I</i><sup>ctx</sup>, and use the same viewpoint to render the part in isolation, <i>I</i><sup>part</sup>. <i>I</i><sup>full</sup> captures the entire mesh. We highlight the part with a different color from the rest of the mesh. <b>Right:</b> For each part, its corresponding images are passed through an encoder and their embeddings are concatenated. During training, embeddings of parts with the same material are pulled together, while those with different materials are pushed apart.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Results</h2>
+                    <img src="./static/images/results-custom.png" alt="Qualitative results" class="feature-image">
+                    <div class="content has-text-justified">
+                        <p>
+                            We evaluate Material Magic Wand on a curated benchmark of 100 meshes with 241 part-level queries and compare it against geometry-based histogram matching, vision foundation model embeddings such as SigLIP and DINO, and PartField. Our method achieves the best performance across all reported retrieval and grouping metrics. Qualitatively, our method retrieves components that are both geometrically and contextually similar with the query, while baselines often miss structurally related parts or include visually similar but contextually incorrect ones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Interactive Demo</h2>
+                    <div class="publication-video">
+                        <video controls muted playsinline style="width: 100%;">
+                            <source src="./static/videos/interactive-demo-web.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@inproceedings{materialmagicwand2026,
+  title={Material Magic Wand: Material-Aware Grouping of 3D Parts in Untextured Meshes},
+  author={Jain, Umangi and Kim, Vladimir and Gadelha, Matheus and Gilitschenski, Igor and Chen, Zhiqin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2026}
+}</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is based on <a href="https://nerfies.github.io/">Nerfies</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
